@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bk: #0a0a0a;
+  --color-wh: #fafafa;
+  --color-g50: #f5f5f4;
+  --color-g100: #e7e5e4;
+  --color-g200: #d6d3d1;
+  --color-g300: #a8a29e;
+  --color-g400: #78716c;
+  --color-g500: #57534e;
+  --color-g600: #44403c;
+  --color-acc: #0e7490;
+  --color-acc-light: #cffafe;
+  --color-acc-mid: #67e8f9;
+  --color-acc-subtle: #ecfeff;
+  --color-red: #b91c1c;
+  --color-red-light: #fef2f2;
+  --color-red-mid: #fca5a5;
+  --color-amb: #92400e;
+  --color-amb-light: #fffbeb;
+  --color-amb-mid: #fcd34d;
+  --color-blu: #075985;
+  --color-blu-light: #e0f2fe;
+  --color-blu-mid: #93c5fd;
+  --color-pur: #5b21b6;
+  --color-pur-light: #ede9fe;
+  --color-pur-mid: #c4b5fd;
+
+  --font-sans: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'DM Mono', 'JetBrains Mono', 'SF Mono', monospace;
+  --font-display: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-bk);
+    background: var(--color-wh);
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+
+  ::selection {
+    background: var(--color-acc-light);
+    color: var(--color-acc);
+  }
+}
+
+@keyframes termline {
+  0% { opacity: 0; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes termblink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.term-cursor { animation: termblink 1s steps(1) infinite; }
+
+@keyframes ingestpulse {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50%      { transform: scale(1.8); opacity: 1; }
+}
+.ingest-pulse {
+  animation: ingestpulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes ticker {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
